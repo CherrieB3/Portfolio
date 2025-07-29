@@ -1,0 +1,196 @@
+/* General styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #222222;
+}
+
+/* Home page layout */
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  height: 100vh;
+  align-items: center;
+  justify-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+
+/* Burst of colourful rays around the hero name */
+.burst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 280px;
+  height: 280px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.burst span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 60px;
+  background-color: var(--color);
+  transform-origin: center -10px;
+  transform: rotate(var(--angle));
+  border-radius: 3px;
+  opacity: 0.8;
+}
+
+/* Icon items on the home page */
+.icon-item {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s ease;
+}
+
+.icon-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.icon-item span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.icon-item:hover {
+  transform: translateY(-6px) scale(1.05);
+}
+
+/* Site header on inner pages */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid #eee;
+}
+
+.logo a {
+  font-size: 1.8rem;
+  text-decoration: none;
+  color: #222;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.nav-icons .nav-item {
+  display: inline-block;
+}
+
+.nav-icons img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.nav-icons img:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* Gallery layout */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.art-card img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.art-card.placeholder {
+  height: 180px;
+  background: linear-gradient(135deg, #f7f7f7, #eaeaea);
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.art-card.placeholder::after {
+  content: 'Artwork';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  color: #999999;
+  font-style: italic;
+}
+
+/* Simple message pages */
+.message-container {
+  padding: 60px;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Back to top button */
+.to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #ffe68b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  font-size: 1.5rem;
+  user-select: none;
+}
+
+.to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
